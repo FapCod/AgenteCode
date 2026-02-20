@@ -10,8 +10,8 @@ description: Auditoría profesional de PR con puntuación)
 ```
 /review-pr [NUMERO_PR]
 /review-pr [NUMERO_PR] del repo [NOMBRE_REPO]
-/review-pr https://github.com/tech-belcorp/[NOMBRE_REPO]/pull/[NUMERO_PR]
-https://github.com/tech-belcorp/[NOMBRE_REPO]/pull/[NUMERO_PR]
+/review-pr https://github.com/[NOMBRE_USUARIO]/[NOMBRE_REPO]/pull/[NUMERO_PR]
+https://github.com/[NOMBRE_USUARIO]/[NOMBRE_REPO]/pull/[NUMERO_PR]
 ```
 
 ---
@@ -81,7 +81,7 @@ https://github.com/tech-belcorp/[NOMBRE_REPO]/pull/[NUMERO_PR]
 
 **Formatos aceptados:**
 ```
-✅ https://github.com/tech-belcorp/{REPO}/pull/{NUMBER}
+✅ https://github.com/{NOMBRE_USUARIO}/{REPO}/pull/{NUMBER}
 ✅ /review-pr {NUMBER} del repo {REPO}
 ✅ /review-pr {NUMBER} (usa repo por defecto si está configurado)
 ✅ PR #{NUMBER} del repo {REPO}
@@ -89,9 +89,9 @@ https://github.com/tech-belcorp/[NOMBRE_REPO]/pull/[NUMERO_PR]
 
 **Formatos NO válidos (rechazar):**
 ```
-❌ https://github.com/tech-belcorp/{REPO}/compare/master...feature/branch  (es comparación, no PR)
-❌ https://github.com/tech-belcorp/{REPO}/tree/feature/branch  (es rama, no PR)
-❌ https://github.com/tech-belcorp/{REPO}/commit/{SHA}  (es commit, no PR)
+❌ https://github.com/{NOMBRE_USUARIO}/{REPO}/compare/master...feature/branch  (es comparación, no PR)
+❌ https://github.com/{NOMBRE_USUARIO}/{REPO}/tree/feature/branch  (es rama, no PR)
+❌ https://github.com/{NOMBRE_USUARIO}/{REPO}/commit/{SHA}  (es commit, no PR)
 ❌ Solo nombre de rama sin número de PR
 ```
 
@@ -99,7 +99,7 @@ https://github.com/tech-belcorp/[NOMBRE_REPO]/pull/[NUMERO_PR]
 ```
 ⚠️ El link proporcionado no es un PR válido.
 
-Formato esperado: https://github.com/tech-belcorp/{REPO}/pull/{NUMBER}
+Formato esperado: https://github.com/{NOMBRE_USUARIO}/{REPO}/pull/{NUMBER}
 
 Por favor proporciona:
 1. El link directo al nombre del repositorio
@@ -107,7 +107,7 @@ Por favor proporciona:
 
 **Regex de validación:**
 ```regex
-^https:\/\/github\.com\/tech-belcorp\/[\w\-]+\/pull\/\d+$
+^https:\/\/github\.com\/[NOMBRE_USUARIO]\/[REPO]\/pull\/\d+$
 ```
 
 ---
@@ -115,8 +115,8 @@ Por favor proporciona:
 ### Paso 1: Obtener información del PR (NO ES NECESARIO VALIDACION DEL USUARIO)
 // turbo
 ```powershell
-gh pr view {PR_NUMBER} --repo tech-belcorp/{REPO_NAME} --json title,body,author,additions,deletions,changedFiles,baseRefName,headRefName
-gh pr diff {PR_NUMBER} --repo tech-belcorp/{REPO_NAME}
+gh pr view {PR_NUMBER} --repo {NOMBRE_USUARIO}/{REPO_NAME} --json title,body,author,additions,deletions,changedFiles,baseRefName,headRefName
+gh pr diff {PR_NUMBER} --repo {NOMBRE_USUARIO}/{REPO_NAME}
 ```
 
 #### 🔄 Paso 1.0: Verificar Reviews Anteriores del mismo PR
@@ -1385,7 +1385,7 @@ $commentFile = "$env:TEMP\pr_review_comment.md"
 $event = "{EVENTO_SEGÚN_SCORE}"
 
 # 4. Publicar usando gh cli
-gh pr review {PR_NUMBER} --repo tech-belcorp/{REPO_NAME} --{$event} --body-file $commentFile
+gh pr review {PR_NUMBER} --repo {NOMBRE_USUARIO}/{REPO_NAME} --{$event} --body-file $commentFile
 
 # ⚠️ NO eliminar $commentFile aquí — se necesita en el Paso 12 para guardar historial
 ```
@@ -1421,7 +1421,7 @@ Copy-Item "$env:TEMP\pr_review_comment.md" -Destination "$historyDir\review_$tim
 // turbo
 ```powershell
 $diffFile = "$historyDir\diff_$timestamp.txt"
-gh pr diff {PR_NUMBER} --repo tech-belcorp/{REPO_NAME} | Set-Content -Path $diffFile
+gh pr diff {PR_NUMBER} --repo {NOMBRE_USUARIO}/{REPO_NAME} | Set-Content -Path $diffFile
 
 # LIMPIEZA DE ARCHIVOS TEMPORALES (automática, sin pedir permiso)
 Remove-Item "$env:TEMP\pr_review_comment.md" -ErrorAction SilentlyContinue
