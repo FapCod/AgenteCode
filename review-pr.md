@@ -1281,7 +1281,7 @@ Veredicto: **{VERDICT ICON} {VERDICT}**
 - 💡 [Sugerencia] ...
 
 **P3 - Low Priority:**
-- ℹ️ [Nitpick/Formato] ...
+- ℹ️ [Nitpick/Formato] ... **Bueno o malo?**
 
 ---
 
