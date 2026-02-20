@@ -1,0 +1,20 @@
+﻿{
+    "new":  [
+                {
+                    "desc":  "Llamada SÃ­ncrona Bloqueante",
+                    "type":  "P1",
+                    "file":  "HomeController.cs"
+                },
+                {
+                    "desc":  "LÃ³gica de Negocio en Controller",
+                    "type":  "P1",
+                    "file":  "HomeController.cs"
+                }
+            ],
+    "fixes":  [
+
+              ],
+    "persistent":  [
+
+                   ]
+}

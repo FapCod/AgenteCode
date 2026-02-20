@@ -1,0 +1,12 @@
+[
+  {
+    "type": "Quality",
+    "description": "Redundant catch blocks",
+    "severity": "P1"
+  },
+  {
+    "type": "Security",
+    "description": "Fixed: Logging sensitive payment data",
+    "severity": "P0"
+  }
+]

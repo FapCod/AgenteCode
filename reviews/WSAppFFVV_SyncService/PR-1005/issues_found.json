@@ -1,0 +1,23 @@
+[
+    {
+        "severity": "P1",
+        "title": "Dependencia Vulnerable (Newtonsoft.Json)",
+        "file": "packages.config",
+        "line": 0,
+        "description": "Se está introduciendo Newtonsoft.Json.8.0.3 (2016). Versión obsoleta con vulnerabilidades."
+    },
+    {
+        "severity": "P1",
+        "title": "Manejo de Secretos (Caching Estático)",
+        "file": "app/Belcorp.FFVV.SyncService.Framework/SecretFactory/AwsSecretsManagerStrategy.cs",
+        "line": 362,
+        "description": "Caching estático sin expiración."
+    },
+    {
+        "severity": "P3",
+        "title": "Typo en mensaje de error",
+        "file": "app/Belcorp.FFVV.SyncService.Data/DI/DataPackage.cs",
+        "line": 182,
+        "description": "Typo 'no se encontro' (falta tilde)."
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "category": "P1",
+        "description": "Caché sin expiración - Cache estático sin TTL",
+        "file": "app/Belcorp.FFVV.SyncService.Framework/SecretFactory/AwsSecretsManagerStrategy.cs",
+        "line": 20
+    },
+    {
+        "category": "P3",
+        "description": "Typo - 'no se encontro' en lugar de 'no se encontró'",
+        "file": "app/Belcorp.FFVV.SyncService.Data/DI/DataPackage.cs",
+        "line": 182
+    },
+    {
+        "category": "P3",
+        "description": "Typo - 'no se encontro' en lugar de 'no se encontró'",
+        "file": "app/Belcorp.FFVV.SyncService.Data/DI/DataPackage.cs",
+        "line": 192
+    }
+]

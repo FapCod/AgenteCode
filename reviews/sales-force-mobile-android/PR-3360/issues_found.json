@@ -1,0 +1,8 @@
+[
+    {
+        "category": "P0",
+        "description": "Unsafe Cast - Riesgo de Crash",
+        "file": "developmentpath/src/main/kotlin/biz/belcorp/salesforce/modules/developmentpath/features/profile/prepararseesclave/detail/negocio/container/BusinessViewModel.kt",
+        "line": 123
+    }
+]

@@ -1,0 +1,250 @@
+{
+    "developers": {
+        "dev-belcorp": {
+            "total_prs": 1,
+            "scores": [
+                100
+            ],
+            "avg_score": 100,
+            "p0_count": 0,
+            "p1_count": 0,
+            "p2_count": 1,
+            "consecutive_no_p0": 1,
+            "badges": [
+                "bronze"
+            ],
+            "recurring_issues": {},
+            "last_review_date": "2026-01-15T01:30:00",
+            "repos": [
+                "PortalConsultoras2"
+            ],
+            "expertise": [
+                "C#",
+                "Razor"
+            ]
+        },
+        "frank-pinin_belcorp": {
+            "total_prs": 5,
+            "scores": [
+                72,
+                78,
+                72,
+                68,
+                87
+            ],
+            "avg_score": 75.4,
+            "p0_count": 14,
+            "p1_count": 3,
+            "p2_count": 8,
+            "consecutive_no_p0": 1,
+            "badges": [],
+            "recurring_issues": {
+                "comentarios_en_codigo": 4,
+                "codigo_debug": 1
+            },
+            "last_review_date": "2026-01-21T17:28:00",
+            "repos": [
+                "marcas-cyzone_multisite",
+                "marcas-lbel_multisite",
+                "api-identity-validation"
+            ],
+            "expertise": [
+                "PHP",
+                "WordPress",
+                "JavaScript"
+            ]
+        },
+        "extbmartinez_belcorp": {
+            "total_prs": 2,
+            "scores": [
+                92,
+                97
+            ],
+            "avg_score": 94.5,
+            "p0_count": 0,
+            "p1_count": 0,
+            "p2_count": 4,
+            "consecutive_no_p0": 2,
+            "badges": [],
+            "recurring_issues": {},
+            "last_review_date": "2026-01-21T17:24:00",
+            "repos": [
+                "PortalConsultoras2"
+            ],
+            "expertise": [
+                "C#",
+                "Razor",
+                "JS",
+                "Polly"
+            ]
+        },
+        "Joao Martín Solórzano Ambía": {
+            "total_prs": 1,
+            "scores": [
+                96
+            ],
+            "avg_score": 96,
+            "p0_count": 0,
+            "p1_count": 0,
+            "p2_count": 1,
+            "consecutive_no_p0": 1,
+            "badges": [],
+            "recurring_issues": {},
+            "last_review_date": "2026-01-20T17:31:00",
+            "repos": [
+                "PortalFFVVWebM"
+            ],
+            "expertise": [
+                "C#"
+            ]
+        },
+        "extaalvarez_belcorp": {
+            "total_prs": 1,
+            "scores": [
+                84
+            ],
+            "avg_score": 84,
+            "p0_count": 0,
+            "p1_count": 1,
+            "p2_count": 1,
+            "consecutive_no_p0": 1,
+            "badges": [],
+            "recurring_issues": {},
+            "last_review_date": "2026-01-21T16:52:00",
+            "repos": [
+                "unete-sln-portal"
+            ],
+            "expertise": [
+                "C#",
+                ".NET"
+            ]
+        },
+        "extjfarfan_belcorp": {
+            "total_prs": 2,
+            "scores": [
+                91,
+                100
+            ],
+            "avg_score": 95.5,
+            "p0_count": 0,
+            "p1_count": 0,
+            "p2_count": 2,
+            "consecutive_no_p0": 2,
+            "badges": [],
+            "recurring_issues": {},
+            "last_review_date": "2026-01-23T13:09:00",
+            "repos": [
+                "PortalConsultoras2"
+            ],
+            "expertise": [
+                "C#",
+                ".NET",
+                "HttpClient"
+            ]
+        }
+    },
+    "badges": {
+        "definitions": {
+            "bronze": {
+                "emoji": "🥉",
+                "name": "Bronze",
+                "criteria": "5 PRs con score >80",
+                "threshold": 5
+            },
+            "silver": {
+                "emoji": "🥈",
+                "name": "Silver",
+                "criteria": "10 PRs consecutivos sin P0",
+                "threshold": 10
+            },
+            "gold": {
+                "emoji": "🥇",
+                "name": "Gold",
+                "criteria": "20 PRs con score >90",
+                "threshold": 20
+            },
+            "diamond": {
+                "emoji": "💎",
+                "name": "Diamond",
+                "criteria": "Mentor de 3+ devs",
+                "threshold": 3
+            }
+        }
+    },
+    "alerts": {
+        "low_score_threshold": 70,
+        "inactive_days_threshold": 14,
+        "recurring_issue_threshold": 3,
+        "active_alerts": [
+            {
+                "type": "recurring_issue",
+                "developer": "frank-pinin_belcorp",
+                "issue": "comentarios_en_codigo",
+                "count": 3,
+                "created": "2026-01-15",
+                "status": "pending"
+            }
+        ]
+    },
+    "peer_reviews": {
+        "expertise_matrix": {
+            "C#": [
+                "dev-belcorp",
+                "extbmartinez_belcorp",
+                "Joao Martín Solórzano Ambía"
+            ],
+            "JS/React": [
+                "extbmartinez_belcorp"
+            ],
+            "PHP/WordPress": [
+                "frank-pinin_belcorp"
+            ],
+            "Razor": [
+                "dev-belcorp",
+                "extbmartinez_belcorp"
+            ]
+        },
+        "review_assignments": {}
+    },
+    "team_stats": {
+        "total_reviews": 10,
+        "avg_score": 82,
+        "total_p0": 16,
+        "total_p1": 6,
+        "week_reviews": [],
+        "common_issues": {
+            "comentarios_en_codigo": 4,
+            "magic_numbers": 1,
+            "codigo_debug": 1,
+            "svg_sin_sanitizar": 1,
+            "spacing_operators": 1
+        },
+        "by_repo": {
+            "PortalConsultoras2": {
+                "count": 2,
+                "avg_score": 96
+            },
+            "marcas-cyzone_multisite": {
+                "count": 2,
+                "avg_score": 75
+            },
+            "marcas-lbel_multisite": {
+                "count": 2,
+                "avg_score": 70
+            },
+            "PortalFFVVWebM": {
+                "count": 1,
+                "avg_score": 96
+            },
+            "ecatalog-web": {
+                "count": 1,
+                "avg_score": 72
+            }
+        }
+    },
+    "metadata": {
+        "created": "2026-01-20",
+        "version": "1.0",
+        "last_updated": "2026-01-21"
+    }
+}
