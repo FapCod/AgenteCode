@@ -1,0 +1,13 @@
+[
+  {
+    "id": "P0-RESOLVED",
+    "title": "NullReferenceException en BuildCurlLog",
+    "severity": "RESOLVED",
+    "file": "packages/app/Portal.Consultoras.Common/PagoEnLinea/Ztrans/HttpZtransClient.cs"
+  },
+  {
+    "id": "SCORE",
+    "title": "Perfect Score 100/100",
+    "severity": "EXCELLENT"
+  }
+]

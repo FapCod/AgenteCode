@@ -1,0 +1,14 @@
+[
+  {
+    "id": "P0-01",
+    "title": "NullReferenceException en BuildCurlLog",
+    "severity": "P0",
+    "file": "packages/app/Portal.Consultoras.Common/PagoEnLinea/Ztrans/HttpZtransClient.cs"
+  },
+  {
+    "id": "P1-01",
+    "title": "Inconsistencia en Key de Enmascarado (acctNumber)",
+    "severity": "P1",
+    "file": "packages/app/Portal.Consultoras.Common/PagoEnLinea/Ztrans/HttpZtransClient.cs"
+  }
+]

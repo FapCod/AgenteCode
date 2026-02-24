@@ -1278,10 +1278,22 @@ Veredicto: **{VERDICT ICON} {VERDICT}**
 
 **P2 - Medium Priority:**
 - 💡 [Sugerencia] ...
+- **Solución sugerida**:
+     ```
+     {CODIGO_CORREGIDO}
+     ```
 - 💡 [Sugerencia] ...
+- **Solución sugerida**:
+     ```
+     {CODIGO_CORREGIDO}
+     ```
 
 **P3 - Low Priority:**
 - ℹ️ [Nitpick/Formato] ... **Bueno o malo?**
+- **Solución sugerida**:
+     ```
+     {CODIGO_CORREGIDO}
+     ```
 
 ---
 
