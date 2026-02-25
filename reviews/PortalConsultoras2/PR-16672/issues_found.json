@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Ruptura de Contrato WCF / Breaking API Change",
+    "file": "packages/app/Portal.Consultoras.ServiceContracts/IContenidoService.cs",
+    "priority": "P0",
+    "resolved": false
+  },
+  {
+    "title": "NullReferenceException y Bloqueo por falta de Fallback en Feature Flag",
+    "file": "packages/app/Portal.Consultoras.Web/ApiControllers/EndpointLogic/HomeController.cs",
+    "priority": "P0",
+    "resolved": false
+  },
+  {
+    "title": "Números Mágicos (Magic Numbers)",
+    "file": "packages/app/Portal.Consultoras.BizLogic/BLBanner.cs",
+    "priority": "P1",
+    "resolved": false
+  }
+]

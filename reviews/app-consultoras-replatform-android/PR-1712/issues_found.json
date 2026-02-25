@@ -1,0 +1,8 @@
+{
+  "issues": [
+    {
+      "type": "P2",
+      "description": "Hardcoded string in utility code for period string formatting"
+    }
+  ]
+}

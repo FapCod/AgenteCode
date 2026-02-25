@@ -1,0 +1,8 @@
+{
+  "issues": [
+    {
+      "type": "P3",
+      "description": "Falta de espaciado estándar (formato) en invocación de métodos."
+    }
+  ]
+}

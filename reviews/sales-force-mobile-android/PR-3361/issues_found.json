@@ -1,0 +1,20 @@
+{
+  "issues": [
+    {
+      "type": "P0",
+      "description": "Riesgo de Crash ANR por Petición de Red Síncrona (runBlocking)"
+    },
+    {
+      "type": "P0",
+      "description": "Violación de Cero-Comentarios (Regla de Formato TODO)"
+    },
+    {
+      "type": "P1",
+      "description": "Sobrecarga de Red Incesante / Falta de Caché de Memoria (Performance Leak)"
+    },
+    {
+      "type": "P2",
+      "description": "Múltiples importaciones Gradle no utilizadas al invocar Kotlin DSL"
+    }
+  ]
+}

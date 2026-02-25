@@ -1,0 +1,8 @@
+{
+  "issues": [
+    {
+      "type": "P3",
+      "description": "Caracteres Especiales sin escapar a Unicode"
+    }
+  ]
+}
