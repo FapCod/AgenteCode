@@ -25,7 +25,8 @@ https://github.com/[NOMBRE_USUARIO]/[NOMBRE_REPO]/pull/[NUMERO_PR]
 > 4. **EJECUTAR ÚNICAMENTE la sub-sección del Paso 4** que corresponda al lenguaje detectado. **OMITIR COMPLETAMENTE** las demás sub-secciones de ese paso.
 > 5. **NO SALTAR la auto-verificación** (Paso 10) antes de publicar
 > 6. **CONSULTAR las referencias del Apéndice D** para C#, kotlin, php, javascript y citarlas en el review
-> 7. **TRACKING DE PASOS** — La IA debe confirmar internamente que completó CADA paso antes de avanzar:
+> 7. **Si encuentras keys como GOOGLE_API_KEY, AWS_ACCESS_KEY_ID, etc, o servidores como servidor, user, password, etc, o token como USER_TOKEN, PWD_TOKEN, etc, o cualquier información sensible, no debes guardarlas en el review para que no queden expuestas en GitHub. Debes reemplazarlas por *** y en el mensaje del review debes indicar que se reemplazaron por ***
+> 8. **TRACKING DE PASOS** — La IA debe confirmar internamente que completó CADA paso antes de avanzar:
 >    - [ ] Paso 0: Validar formato ✓
 >    - [ ] Paso 1: Obtener info + verificar reviews anteriores ✓
 >    - [ ] Paso 1.1: Filtrar archivos ignorados ✓
@@ -40,7 +41,8 @@ https://github.com/[NOMBRE_USUARIO]/[NOMBRE_REPO]/pull/[NUMERO_PR]
 >    - [ ] 🚫 GATE B — Paso 10: Auto-verificación ✓
 >    - [ ] Paso 11: Publicar ✓ _(solo si GATE B pasó)_
 >    - [ ] 🚫 GATE C — Paso 12-13: Historial + archivado + limpieza ✓
-> 8. **Si no se cumple alguno de estos puntos, el review es INVÁLIDO**
+> 9. **Si no se cumple alguno de estos puntos, el review es INVÁLIDO**
+
 
 ---
 
