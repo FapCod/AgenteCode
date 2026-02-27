@@ -1,0 +1,6 @@
+36e48ba feat: Integrate AWS SDK v2 and dynamically manage OAuth password, adding packaging exclusions and ProGuard rules.
+e1538a8 docs: Add code review reports, issue summaries, and diffs for multiple Pull Requests across various projects.
+c74a28c feat: enhance PR review template with suggested solution blocks and add review artifacts for PR-16676, including fixes for sensitive data masking and conditional logging.
+b4a00c2 mejorar la documentacion
+4bff7bd DOCUMENTACION
+3b9c9c6 agente ia
