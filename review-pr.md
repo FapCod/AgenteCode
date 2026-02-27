@@ -25,11 +25,7 @@ https://github.com/[NOMBRE_USUARIO]/[NOMBRE_REPO]/pull/[NUMERO_PR]
 > 4. **EJECUTAR ÚNICAMENTE la sub-sección del Paso 4** que corresponda al lenguaje detectado. **OMITIR COMPLETAMENTE** las demás sub-secciones de ese paso.
 > 5. **NO SALTAR la auto-verificación** (Paso 10) antes de publicar
 > 6. **CONSULTAR las referencias del Apéndice D** para C#, kotlin, php, javascript y citarlas en el review
-<<<<<<< HEAD
 > 7. **Si encuentras keys como GOOGLE_API_KEY, AWS_ACCESS_KEY_ID, etc, o servidores como servidor, user, password, etc, o token como USER_TOKEN, PWD_TOKEN,NEW_RELIC_TOKEN,SOMOS_BELCORP_HOST,API_SB_HOST,HOST_UNETE_BELCORP,MATERIALES_REDES_SOCIALES,OAUTH_PASSWORD,user,password,pass,pwd,id,database,YOUTUBE_API_KEY,username, etc, o cualquier información sensible, no debes guardarlas en el review para que no queden expuestas en GitHub. Debes reemplazarlas por *** y en el mensaje del review debes indicar que se reemplazaron por ***
-=======
-> 7. **Si encuentras keys como GOOGLE_API_KEY, AWS_ACCESS_KEY_ID, etc, o servidores como servidor, user, password, etc, o token como USER_TOKEN, PWD_TOKEN, etc, o cualquier información sensible, no debes guardarlas en el review para que no queden expuestas en GitHub. Debes reemplazarlas por *** y en el mensaje del review debes indicar que se reemplazaron por ***
->>>>>>> e23b846c026daec5b33c3a13579a18ab2da72a0d
 > 8. **TRACKING DE PASOS** — La IA debe confirmar internamente que completó CADA paso antes de avanzar:
 >    - [ ] Paso 0: Validar formato ✓
 >    - [ ] Paso 1: Obtener info + verificar reviews anteriores ✓
