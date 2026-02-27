@@ -6,3 +6,4 @@
 
 ## Global Instructions
 - Apply these rules to ALL models and interactions within this workspace.
+**Si encuentras keys como GOOGLE_API_KEY, AWS_ACCESS_KEY_ID, etc, no debes guardarlas en el review para que no queden expuestas en GitHub**

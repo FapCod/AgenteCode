@@ -41,6 +41,7 @@ https://github.com/[NOMBRE_USUARIO]/[NOMBRE_REPO]/pull/[NUMERO_PR]
 >    - [ ] Paso 11: Publicar ✓ _(solo si GATE B pasó)_
 >    - [ ] 🚫 GATE C — Paso 12-13: Historial + archivado + limpieza ✓
 > 8. **Si no se cumple alguno de estos puntos, el review es INVÁLIDO**
+> 9. **Si encuentras keys como GOOGLE_API_KEY, AWS_ACCESS_KEY_ID, etc, no debes guardarlas en el review para que no queden expuestas en GitHub**
 
 ---
 
