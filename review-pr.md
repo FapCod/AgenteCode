@@ -54,7 +54,7 @@ https://github.com/[NOMBRE_USUARIO]/[NOMBRE_REPO]/pull/[NUMERO_PR]
 > |------|-------------|------------------|-----------------|
 > | 🚫 **GATE A** | Calcular puntuación (Paso 8) | Pasos 5, 6, 7 | Encoding, clasificación PR, dependencias |
 > | 🚫 **GATE B** | Publicar review (Paso 11) | Paso 10 | Auto-verificación: reglas P0, consistencia score-issues, formato |
-> | 🚫 **GATE C** | Terminar workflow | Pasos 12, 13 | Historial guardado, archivos archivados |
+> | 🚫 **GATE C** | Terminar workflow | Pasos 12, 13 | Historial guardado, limpieza final |
 >
 > **⚠️ ADVERTENCIA PARA TODAS LAS IAs**: El workflow **NO TERMINA** al publicar el comentario en GitHub.
 > Después de publicar, TODAVÍA quedan los Pasos 12 y 13 (GATE C). Si los omites, el review es INVÁLIDO.
@@ -1427,26 +1427,23 @@ Copy-Item "$env:TEMP\pr_review_comment.md" -Destination "$historyDir\review_$tim
 
 ---
 
-### Paso 13: Archivar diffs y Limpieza Final (OBLIGATORIO)
+### Paso 13: Limpieza Final (OBLIGATORIO)
 
 > **⚡ AUTOMÁTICO**: La IA DEBE ejecutar este paso automáticamente SIN pedir permiso al usuario.
-> La limpieza de archivos temporales NUNCA requiere aprobación.
+> En este paso se eliminan todos los archivos temporales y el diff generado para evitar dejar rastro de información sensible.
 
 // turbo
 ```powershell
-$diffFile = "$historyDir\diff_$timestamp.txt"
-gh pr diff {PR_NUMBER} --repo {NOMBRE_USUARIO}/{REPO_NAME} | Set-Content -Path $diffFile
-
-# LIMPIEZA DE ARCHIVOS TEMPORALES (automática, sin pedir permiso)
+# LIMPIEZA DE ARCHIVOS TEMPORALES Y DIFFS (automática, sin pedir permiso)
+# NO se archiva el diff en formato .txt para evitar exposición de datos sensibles
 Remove-Item "$env:TEMP\pr_review_comment.md" -ErrorAction SilentlyContinue
-Remove-Item "full_diff.txt" -ErrorAction SilentlyContinue
+Remove-Item "*.txt" -ErrorAction SilentlyContinue
 Remove-Item "files.json" -ErrorAction SilentlyContinue
 Remove-Item "pr_info.json" -ErrorAction SilentlyContinue
-Remove-Item "diff_output.txt" -ErrorAction SilentlyContinue
 ```
 
 > **CONFIRMACIÓN DE WORKFLOW COMPLETO:**
-> "✅ Review publicado, historial guardado, diff archivado y archivos temporales eliminados. Proceso finalizado exitosamente."
+> "✅ Review publicado, historial guardado y archivos temporales eliminados. Proceso finalizado exitosamente."
 
 ---
 
