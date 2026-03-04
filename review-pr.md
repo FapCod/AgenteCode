@@ -147,9 +147,12 @@ if (Test-Path $reviewDir) {
 1. Leer el review anterior (`review_*.md`) para conocer las observaciones previas
 2. Leer los issues anteriores (`issues_found.json`) para verificar si fueron corregidos
 3. En el nuevo review, incluir una sección indicando:
-   - ✅ Issues corregidos desde el último review
-   - ❌ Issues que persisten sin corrección
-   - 🆕 Issues nuevos encontrados en esta revisión
+   - 🔍 **Seguimiento de Issues Anteriores**: Seguir el formato detallado en el Paso 9 (Solo para re-reviews).
+   - ✅ Issues corregidos desde el último review (Recuperar puntos restados).
+   - ❌ Issues que persisten sin corrección (Mantener resta de puntos).
+   - 🆕 Issues nuevos encontrados en esta revisión.
+
+
 
 
 ### Paso 1.1: 🚫 Archivos a IGNORAR durante el Review
@@ -1236,21 +1239,30 @@ Veredicto: **{VERDICT ICON} {VERDICT}**
 > **Desarrollador**: {DEVELOPER}
 > **Fecha**: {DATE}
 > **¿Listo para fusionar?**: {SI/NO/PODRIA MEJORAR}
+
+*(Incluir solo si es RE-REVIEW)*
+## 🔍 Seguimiento de Issues Anteriores
+- ✅ **CORREGIDO**: [Título Issue] ({CATEGORIA} +{X} pts). {Explicación breve de la solución}.
+- ❌ **PENDIENTE**: [Título Issue] (-{X} pts {CATEGORIA}).
+
 ---
 
 ## 🔴 Problemas Críticos (P0 - Blocking)
+
 > *Issues de seguridad, crashes, o violaciones de reglas estrictas. Deben corregirse obligatoriamente.*
 
 1. **[Título Breve del Error]**
    - **Archivo**: `{ARCHIVO}` línea {LINEA}
    - **Problema**: {DESCRIPCIÓN_DETALLADA}
    - **Riesgo**: {IMPACTO_NEGATIVO}
+   - **Impacto en score**: {X} puntos
    - **Tiempo est.**: {X} minutos
+   - **Categoria afectada**: {CATEGORIA}
    - **Código actual**:
      ```
      {CODIGO_CON_ERROR}
      ```
-   - **Solución sugerida**:
+   - **Solución sugerida**: {DESCRIPCION_DE_LA_SOLUCION}
      ```
      {CODIGO_CORREGIDO}
      ```
@@ -1266,7 +1278,14 @@ Veredicto: **{VERDICT ICON} {VERDICT}**
    - **Archivo**: `{ARCHIVO}` línea {LINEA}
    - **Problema**: {DESCRIPCIÓN}
    - **Impacto**: {CONSECUENCIA E IMPACTO}
-   - **Solución sugerida**:
+   - **Impacto en score**: {X} puntos
+   - **Tiempo est.**: {X} minutos
+   - **Categoria afectada**: {CATEGORIA}
+   - **Código actual**:
+     ```
+     {CODIGO_CON_ERROR}
+     ```
+   - **Solución sugerida**: {DESCRIPCION_DE_LA_SOLUCION}
      ```
      {CODIGO_CORREGIDO}
      ```
@@ -1280,19 +1299,43 @@ Veredicto: **{VERDICT ICON} {VERDICT}**
 
 **P2 - Medium Priority:**
 - 💡 [Sugerencia] ...
-- **Solución sugerida**:
+- **Archivo**: `{ARCHIVO}` línea {LINEA}
+- **Impacto en score**: {X} puntos
+- **Tiempo est.**: {X} minutos
+- **Categoria afectada**: {CATEGORIA}
+- **Código actual**:
+     ```
+     {CODIGO_CON_ERROR}
+     ```
+- **Solución sugerida**: {DESCRIPCION_DE_LA_SOLUCION}
      ```
      {CODIGO_CORREGIDO}
      ```
 - 💡 [Sugerencia] ...
-- **Solución sugerida**:
+- **Archivo**: `{ARCHIVO}` línea {LINEA}
+- **Impacto en score**: {X} puntos
+- **Tiempo est.**: {X} minutos
+- **Categoria afectada**: {CATEGORIA}
+- **Código actual**:
+     ```
+     {CODIGO_CON_ERROR}
+     ```
+- **Solución sugerida**: {DESCRIPCION_DE_LA_SOLUCION}
      ```
      {CODIGO_CORREGIDO}
      ```
 
 **P3 - Low Priority:**
 - ℹ️ [Nitpick/Formato] ... **Bueno o malo?**
-- **Solución sugerida**:
+- **Archivo**: `{ARCHIVO}` línea {LINEA}
+- **Impacto en score**: {X} puntos
+- **Tiempo est.**: {X} minutos
+- **Categoria afectada**: {CATEGORIA}
+- **Código actual**:
+     ```
+     {CODIGO_CON_ERROR}
+     ```
+- **Solución sugerida**: {DESCRIPCION_DE_LA_SOLUCION}
      ```
      {CODIGO_CORREGIDO}
      ```
