@@ -1259,10 +1259,13 @@ Veredicto: **{VERDICT ICON} {VERDICT}**
    - **Tiempo est.**: {X} minutos
    - **Categoria afectada**: {CATEGORIA}
    - **Código actual**:
+
      ```
      {CODIGO_CON_ERROR}
      ```
+
    - **Solución sugerida**: {DESCRIPCION_DE_LA_SOLUCION}
+
      ```
      {CODIGO_CORREGIDO}
      ```
@@ -1282,10 +1285,13 @@ Veredicto: **{VERDICT ICON} {VERDICT}**
    - **Tiempo est.**: {X} minutos
    - **Categoria afectada**: {CATEGORIA}
    - **Código actual**:
+
      ```
      {CODIGO_CON_ERROR}
      ```
+
    - **Solución sugerida**: {DESCRIPCION_DE_LA_SOLUCION}
+
      ```
      {CODIGO_CORREGIDO}
      ```
@@ -1298,44 +1304,56 @@ Veredicto: **{VERDICT ICON} {VERDICT}**
 > *Mejoras de mantenibilidad y buenas prácticas. (Ver Regla 3.3: NO sugerir comentarios/docs/tests extra)*
 
 **P2 - Medium Priority:**
-- 💡 [Sugerencia] ...
-- **Archivo**: `{ARCHIVO}` línea {LINEA}
-- **Impacto en score**: {X} puntos
-- **Tiempo est.**: {X} minutos
-- **Categoria afectada**: {CATEGORIA}
-- **Código actual**:
+
+1. 💡 **[Sugerencia]** ...
+   - **Archivo**: `{ARCHIVO}` línea {LINEA}
+   - **Impacto en score**: {X} puntos
+   - **Tiempo est.**: {X} minutos
+   - **Categoria afectada**: {CATEGORIA}
+   - **Código actual**:
+
      ```
      {CODIGO_CON_ERROR}
      ```
-- **Solución sugerida**: {DESCRIPCION_DE_LA_SOLUCION}
+
+   - **Solución sugerida**: {DESCRIPCION_DE_LA_SOLUCION}
+
      ```
      {CODIGO_CORREGIDO}
      ```
-- 💡 [Sugerencia] ...
-- **Archivo**: `{ARCHIVO}` línea {LINEA}
-- **Impacto en score**: {X} puntos
-- **Tiempo est.**: {X} minutos
-- **Categoria afectada**: {CATEGORIA}
-- **Código actual**:
+
+2. 💡 **[Sugerencia]** ...
+   - **Archivo**: `{ARCHIVO}` línea {LINEA}
+   - **Impacto en score**: {X} puntos
+   - **Tiempo est.**: {X} minutos
+   - **Categoria afectada**: {CATEGORIA}
+   - **Código actual**:
+
      ```
      {CODIGO_CON_ERROR}
      ```
-- **Solución sugerida**: {DESCRIPCION_DE_LA_SOLUCION}
+
+   - **Solución sugerida**: {DESCRIPCION_DE_LA_SOLUCION}
+
      ```
      {CODIGO_CORREGIDO}
      ```
 
 **P3 - Low Priority:**
-- ℹ️ [Nitpick/Formato] ... **Bueno o malo?**
-- **Archivo**: `{ARCHIVO}` línea {LINEA}
-- **Impacto en score**: {X} puntos
-- **Tiempo est.**: {X} minutos
-- **Categoria afectada**: {CATEGORIA}
-- **Código actual**:
+
+1. ℹ️ **[Nitpick/Formato]** ... **¿Bueno o malo?**
+   - **Archivo**: `{ARCHIVO}` línea {LINEA}
+   - **Impacto en score**: {X} puntos
+   - **Tiempo est.**: {X} minutos
+   - **Categoria afectada**: {CATEGORIA}
+   - **Código actual**:
+
      ```
      {CODIGO_CON_ERROR}
      ```
-- **Solución sugerida**: {DESCRIPCION_DE_LA_SOLUCION}
+
+   - **Solución sugerida**: {DESCRIPCION_DE_LA_SOLUCION}
+
      ```
      {CODIGO_CORREGIDO}
      ```
@@ -1427,12 +1445,19 @@ Veredicto: **{VERDICT ICON} {VERDICT}**
 > La IA DEBE mostrar el review al usuario y esperar confirmación antes de ejecutar este comando.
 > Todos los demás pasos (historial, archivado, limpieza) se ejecutan automáticamente.
 
+> **🚨 CRÍTICO — HEREDOC EN POWERSHELL**:
+> **SIEMPRE** usar `@'...'@` (comillas simples) para escribir el contenido markdown.
+> **NUNCA** usar `@"..."@` (comillas dobles).
+> En PowerShell, el heredoc de comillas dobles interpreta el backtick `` ` `` como carácter de escape,
+> convirtiendo ` ``` ` en un solo `` ` `` y rompiendo todos los bloques de código en GitHub.
+
 ```powershell
 # 1. Definir encoding para evitar errores de caracteres
 $OutputEncoding = [System.Text.Encoding]::UTF8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 # 2. Guardar comentario en archivo temporal seguro
+# ⚠️ USAR @'...'@ (SIMPLE) — NUNCA @"..."@ (DOBLE): los backticks se dañan con comillas dobles
 $commentFile = "$env:TEMP\pr_review_comment.md"
 @'
 {CONTENIDO_MARKDOWN_DEL_PASO_9}

@@ -1,0 +1,26 @@
+[
+  {
+    "titulo": "Comentario KDoc en Codigo Nuevo",
+    "archivo": "NavigationDrawerSubMenuGrid.kt",
+    "linea": 417,
+    "categoria": "Mantenibilidad",
+    "puntos_descontados": 8,
+    "estado": "PENDIENTE"
+  },
+  {
+    "titulo": "Comentario Inline en Codigo Nuevo",
+    "archivo": "NavigationDrawerSubMenuGrid.kt",
+    "linea": 302,
+    "categoria": "Mantenibilidad",
+    "puntos_descontados": 5,
+    "estado": "PENDIENTE"
+  },
+  {
+    "titulo": "Logica Duplicada ISA Avatar Config",
+    "archivo": "HomeNewCsViewModel.kt y HomeViewModel.kt",
+    "linea": 0,
+    "categoria": "Mantenibilidad, Arquitectura",
+    "puntos_descontados": 7,
+    "estado": "PENDIENTE"
+  }
+]

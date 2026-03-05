@@ -1,0 +1,26 @@
+[
+  {
+    "titulo": "Código Comentado en Producción",
+    "archivo": "packages/app/Portal.Consultoras.Web/ApiControllers/EndpointLogic/UserLogic.cs",
+    "linea": 96,
+    "categoria": "Mantenibilidad",
+    "puntos_descontados": 8,
+    "estado": "PENDIENTE"
+  },
+  {
+    "titulo": "console.error de Debug en Producción",
+    "archivo": "packages/app/Portal.Consultoras.Web/Scripts/PortalConsultoras/Shared/ChatBot/chatbot.js",
+    "linea": 262,
+    "categoria": "Mantenibilidad, Robustez",
+    "puntos_descontados": 5,
+    "estado": "PENDIENTE"
+  },
+  {
+    "titulo": "Código Duplicado — Lógica de openChatbot",
+    "archivo": "packages/web/src/shared/components/organisms/header/components/drawer-menu/index.tsx",
+    "linea": 0,
+    "categoria": "Mantenibilidad, Arquitectura",
+    "puntos_descontados": 7,
+    "estado": "PENDIENTE"
+  }
+]

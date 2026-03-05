@@ -1,0 +1,26 @@
+[
+  {
+    "titulo": "Comentario KDoc en código nuevo",
+    "archivo": "capabilities/src/main/kotlin/com/mindstix/capabilities/presentation/utils/VisibilityUtil.kt",
+    "linea": 873,
+    "categoria": "Mantenibilidad",
+    "puntos_descontados": 8,
+    "estado": "PENDIENTE"
+  },
+  {
+    "titulo": "TODO sin referencia a ticket",
+    "archivo": "app/src/main/kotlin/com/mindstix/baseline/ui/navigation/view/NavigationDrawerContent.kt",
+    "linea": 766,
+    "categoria": "Mantenibilidad",
+    "puntos_descontados": 5,
+    "estado": "PENDIENTE"
+  },
+  {
+    "titulo": "Imports con Wildcard (*)",
+    "archivo": "features-home/.../HomeNewCsViewModel.kt y HomeViewModel.kt",
+    "linea": 0,
+    "categoria": "Mantenibilidad",
+    "puntos_descontados": 6,
+    "estado": "PENDIENTE"
+  }
+]
