@@ -448,6 +448,13 @@ $city = $response?->data?->address?->city ?? 'Unknown';
 - ❌ **Funciones vacías** o solo con `pass`/`return` sin implementar
 - ❌ **Imports/variables no usados** - Código muerto
 
+##### Duplicación vs Restricciones Arquitectónicas
+- ⚠️ **Antes de penalizar por "Código Duplicado"**, la IA debe analizar el **contexto arquitectónico** de ambos componentes (Aplica para Frontend y Backend):
+  - ✅ **Justificado (NO penalizar)**: Si un componente no puede usar el código compartido porque existe una barrera de contexto técnico o de negocio.
+    - *Ejemplos Frontend*: El componente está fuera del `Provider` necesario (estado o caché), renderiza en SSR sin hidratación, o la abstracción usa paquetes incompatibles con ese render-tree.
+    - *Ejemplos Backend*: Evitar referencias circulares entre proyectos (ej. Proyecto `Core` vs `Web`), scopes de Inyección de Dependencias incompatibles, o separación intencionada de dominios/microservicios (DDD). En estos casos, la duplicación controlada local es permitida.
+  - ❌ **Duplicación perezosa (Penalizar)**: Si ambos componentes están en el mismo contexto/capa, tienen las mismas dependencias disponibles y pueden consumir la abstracción compartida sin problemas, pero el desarrollador eligió copiar-pegar. Recomendar usar la abstracción.
+
 ##### Mantenibilidad
 - ❌ **Código duplicado** >10 líneas en 2+ archivos
 - ❌ **Archivos >500 líneas** - Considerar dividir

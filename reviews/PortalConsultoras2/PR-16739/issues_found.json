@@ -17,13 +17,5 @@
     "categoria": "Funcionalidad, Robustez",
     "puntos_descontados": 5,
     "estado": "PENDIENTE"
-  },
-  {
-    "titulo": "Codigo Duplicado — openChatbot persiste en DrawerMenu",
-    "archivo": "packages/web/src/shared/components/organisms/header/components/drawer-menu/index.tsx",
-    "linea": 700,
-    "categoria": "Mantenibilidad, Arquitectura",
-    "puntos_descontados": 7,
-    "estado": "PENDIENTE"
   }
 ]
