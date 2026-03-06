@@ -1,0 +1,47 @@
+[
+  {
+    "id": "P0-001",
+    "priority": "P0",
+    "title": "Deadlock Potencial: .GetAwaiter().GetResult() en Método Síncrono",
+    "file": "MenuLogic.cs",
+    "line": 76,
+    "category": "Robustez/Arquitectura",
+    "status": "PENDIENTE"
+  },
+  {
+    "id": "P1-001",
+    "priority": "P1",
+    "title": "Instanciación Directa new TablaLogicaProvider() Rompe la Inyección de Dependencias",
+    "file": "MenuLogic.cs",
+    "line": 69,
+    "category": "Arquitectura",
+    "status": "PENDIENTE"
+  },
+  {
+    "id": "P1-002",
+    "priority": "P1",
+    "title": "Acceso a item.SubMenu sin Validación de Null",
+    "file": "MenuLogic.cs",
+    "line": 120,
+    "category": "Robustez",
+    "status": "PENDIENTE"
+  },
+  {
+    "id": "P2-001",
+    "priority": "P2",
+    "title": "Colores Hardcodeados en Estilos",
+    "file": "complaints-book/style.ts",
+    "line": 281,
+    "category": "Mantenibilidad",
+    "status": "PENDIENTE"
+  },
+  {
+    "id": "P3-001",
+    "priority": "P3",
+    "title": "Falta newline al final de archivo",
+    "file": "MenuLogic.cs y MenuSchema.cs",
+    "line": null,
+    "category": "Mantenibilidad",
+    "status": "PENDIENTE"
+  }
+]

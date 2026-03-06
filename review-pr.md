@@ -341,13 +341,22 @@ git diff origin/{BASE_BRANCH}..HEAD -- "app/wp-content/themes/{THEME}/" | Select
 
 ##### Código de debug
 - [ ] **Console.log/print/Log.d**: ¿Hay logs de debug en código de producción? (PROHIBIDO)
-  - ❌ Console.log / print / Log.d en producción → Rechazo inmediato
+  - ❌ `console.log`, `print`, `Log.d` en producción → Rechazo inmediato
+  - ❌ **`// console.error(...)` comentado** → Rechazo inmediato (es código muerto, ver regla de Comentarios)
+  - ⚠️ **EXCEPCIÓN para `console.error` en catch blocks**: Si el proyecto **NO tiene un logger centralizado**, aplicar el siguiente criterio:
+    - **Paso 1 — Buscar si existe una mejor alternativa en el proyecto**: Revisar otros archivos del mismo PR o del proyecto para detectar si ya existe un mecanismo de logging (ej: `ctx.log`, `_logger`, `logger.error`, `Timber.e`, `Sentry.captureException`, servicio de Kibana, etc.).
+      - ✅ Si **existe una mejor alternativa**: Reportarla como **P1** y recomendar usarla en lugar de `console.error`. Ejemplo: _"El proyecto usa `logger.error` en otros módulos — se recomienda usarlo aquí para consistencia."_
+      - ✅ Si **NO existe ninguna alternativa mejor**: No reportar como violación. Incluir una **nota al desarrollador** sugiriéndole que decida cómo manejar la trazabilidad del error. Ejemplo: _"No se detectó un logger centralizado. Se deja a criterio del desarrollador si mantener `console.error`, silenciar el error o implementar otro mecanismo de trazabilidad."_
+    - ❌ Rechazar siempre: `catch (e) { // console.error('Error', e); }` (comentado = código muerto, sin trazabilidad)
+    - ❌ Rechazar siempre: `console.log('Success:', data)` (log de flujo feliz, no de error)
 - [ ] **Debugger statements**: ¿Hay `debugger;`, `binding.pry`, etc? (PROHIBIDO)
   - ❌ Debugger statements → Rechazo inmediato
 
 ##### Comentarios y Documentación
 - [ ] **Comentarios en código nuevo**: ¿Hay comentarios `//`, `/* */`, `#`, `{{!-- --}}`, `@* *@`, `<!-- -->`, etc? (PROHIBIDO)
   - ❌ No se permiten comentarios en ningún lenguaje. El código debe ser autoexplicativo → Rechazo inmediato
+  - ❌ **Caso especial — debug comentado**: `// console.error(...)`, `// console.log(...)`, `// print(...)`, etc. son código muerto disfrazado de comentario. Se aplica esta misma regla P0 → Rechazo inmediato
+  - ✅ **Distinción clave**: Un `console.error(...)` activo en un `catch` puede ser aceptable (ver regla "Excepción catch sin logger"). Un `// console.error(...)` comentado NUNCA es aceptable.
 
 ##### Consistencia (P0)
 - [ ] **Inconsistencia de Logging**: Si el proyecto utiliza un logger específico (ej: `ctx.log`, `_logger`, `Timber`), **PROHIBIDO** usar `console.error`, `System.out` o `print`. Usar el logger existente para mantener consistencia y features (contexto, formato, niveles) → Rechazo inmediato
@@ -1145,6 +1154,15 @@ const filter = {
 ### Paso 5: 🚫 GATE A - Encoding
 
 > **🚨 CRÍTICO**: Si el código nuevo contiene caracteres especiales (á, ñ, etc.) y el archivo NO está en UTF-8, reportar como P1.
+
+> **⚠️ ADVERTENCIA — FALSO POSITIVO POR TERMINAL RENDERING**: El diff obtenido vía CLI (`gh pr diff`) puede mostrar caracteres UTF-8 como secuencias corruptas (ej: `campa├▒a` en lugar de `campaña`, `┬┐` en lugar de `¿`) debido al encoding del terminal o del buffer de PowerShell. **Esto NO significa que el archivo fuente esté mal codificado.**
+>
+> **ANTES de reportar un problema de encoding, la IA DEBE verificar:**
+> 1. ¿El carácter problemático está en una línea `+` del diff (código nuevo) o solo en el output de la terminal?
+> 2. Consultar el contexto del PR: si el archivo está guardado en UTF-8 y el resto del proyecto usa UTF-8, asumir que los caracteres son correctos.
+> 3. Solo reportar como P1 si hay evidencia concreta (ej: el diff muestra secuencias de escape literales como `\u00f1` donde debería haber `ñ`, o bytes BOM como `´╗┐` al inicio del archivo).
+>
+> **Ejemplo de falso positivo real**: La terminal muestra `'campa├▒a': campania` pero el código fuente real es `'campaña': campania` (UTF-8 correcto). No reportar.
 
 ---
 
