@@ -1,0 +1,5 @@
+[
+  {"title": "Comentarios en código nuevo", "categoria": "Mantenibilidad", "score_impact": -10},
+  {"title": "Typo en texto visible ('tono4')", "categoria": "Funcionalidad", "score_impact": -5},
+  {"title": "Falta de Entidades HTML para Tildes", "categoria": "Mantenibilidad", "score_impact": -5}
+]

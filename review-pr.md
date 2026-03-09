@@ -128,7 +128,8 @@ gh pr diff {PR_NUMBER} --repo {NOMBRE_USUARIO}/{REPO_NAME}
 **Verificar si hay reviews previos:**
 // turbo
 ```powershell
-$reviewDir = "D:\GitHubProyects\workflows\reviews\{REPO_NAME}\PR-{PR_NUMBER}"
+$repoDirectory = "{REPO_NAME}" -replace '^.+/', '' # Asegurar que solo sea el nombre del repo, sin el usuario/organización
+$reviewDir = Join-Path (Get-Location) "reviews\$repoDirectory\PR-{PR_NUMBER}"
 if (Test-Path $reviewDir) {
     Write-Host "✅ Se encontró review previo en: $reviewDir"
     Get-ChildItem $reviewDir -Filter "review_*.md" | Sort-Object Name -Descending | Select-Object -First 1 | ForEach-Object {
@@ -1505,7 +1506,8 @@ gh pr review {PR_NUMBER} --repo {NOMBRE_USUARIO}/{REPO_NAME} --{$event} --body-f
 
 // turbo
 ```powershell
-$historyDir = "D:\GitHubProyects\workflows\reviews\{REPO_NAME}\PR-{PR_NUMBER}"
+$repoDirectory = "{REPO_NAME}" -replace '^.+/', '' # Asegurar que solo sea el nombre del repo, sin el usuario/organización
+$historyDir = Join-Path (Get-Location) "reviews\$repoDirectory\PR-{PR_NUMBER}"
 New-Item -ItemType Directory -Force -Path $historyDir | Out-Null
 
 # Guardar copia del review
