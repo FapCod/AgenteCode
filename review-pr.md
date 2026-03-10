@@ -26,7 +26,8 @@ https://github.com/[NOMBRE_USUARIO]/[NOMBRE_REPO]/pull/[NUMERO_PR]
 > 5. **NO SALTAR la auto-verificación** (Paso 10) antes de publicar
 > 6. **CONSULTAR las referencias del Apéndice D** para C#, kotlin, php, javascript y citarlas en el review
 > 7. **Si encuentras keys como GOOGLE_API_KEY, AWS_ACCESS_KEY_ID, etc, o servidores como servidor, user, password, etc, o token como USER_TOKEN, PWD_TOKEN,NEW_RELIC_TOKEN,SOMOS_BELCORP_HOST,API_SB_HOST,HOST_UNETE_BELCORP,MATERIALES_REDES_SOCIALES,OAUTH_PASSWORD,user,password,pass,pwd,id,database,YOUTUBE_API_KEY,username, etc, o cualquier información sensible, no debes guardarlas en el review para que no queden expuestas en GitHub. Debes reemplazarlas por *** y en el mensaje del review debes indicar que se reemplazaron por *** (IMPORTANTE)
-> 8. **TRACKING DE PASOS** — La IA debe confirmar internamente que completó CADA paso antes de avanzar:
+> 8. **EVITAR ESCATIMAR CONTEXTO O TOKENS**: Tienes estrictamente **PROHIBIDO realizar revisiones superficiales**. Desde la PRIMERA REVISIÓN debes aplicar un análisis "Deep Dive", evaluando tanto la gramática (P3) como la concurrencia, uso de memoria, instanciaciones innecesarias, reglas de framework (Ej. Jetpack Compose, EF Core) y complejidad algorítmica. No guardes la validación de arquitectura para una "segunda pasada". Trata cada ciclo como si fuera el definitivo.
+> 9. **TRACKING DE PASOS** — La IA debe confirmar internamente que completó CADA paso antes de avanzar:
 >    - [ ] Paso 0: Validar formato ✓
 >    - [ ] Paso 1: Obtener info + verificar reviews anteriores ✓
 >    - [ ] Paso 1.1: Filtrar archivos ignorados ✓
@@ -363,6 +364,11 @@ git diff origin/{BASE_BRANCH}..HEAD -- "app/wp-content/themes/{THEME}/" | Select
 - [ ] **Inconsistencia de Logging**: Si el proyecto utiliza un logger específico (ej: `ctx.log`, `_logger`, `Timber`), **PROHIBIDO** usar `console.error`, `System.out` o `print`. Usar el logger existente para mantener consistencia y features (contexto, formato, niveles) → Rechazo inmediato
 - [ ] **Inconsistencia con patrones existentes**: Si el proyecto ya usa una librería/patrón para algo (ej: HTTP request, Date handling, Validation), **NO** introducir una nueva forma de hacerlo sin justificación. Alinearse con el código existente → Rechazo inmediato
 - [ ] **Inconsistencia de Manejo de Errores**: Si el proyecto tiene una estrategia de manejo de errores definida (ej: `ctx.log` para Kibana, middleware de errores), **NO** sugerir manejadores que no existan en el proyecto. Usar siempre la infraestructura existente (Kibana, Sentry, etc) → Rechazo inmediato
+
+##### Framework Core & Lifecycle (Deep Dive P0)
+- [ ] **Inestabilidad Inyectada en UI / Ciclo de Vida**: ¿Se expone lógica pesada, instanciación de objetos de colecciones (`.map`, `new List`, `filter`) o asignación de referencias dinámicas dentro de capas de presentación puras (ej. `@Composable` en Android, `Render` en React)? (PROHIBIDO)
+  - ❌ El código inyectado no debe romper el Smart Recomposition o el Virtual DOM por usar referencias en memoria volátiles.
+  - ✅ **Solución**: Exigir el uso de inmutabilidad (`remember`, `useMemo`), paso de referencias puras o delegación del mapeo a la capa lógica previa (ViewModel / Controller / State). → Rechazo inmediato o puntuación estrictamente penalizada.
 
 ---
 
