@@ -378,8 +378,9 @@ git diff origin/{BASE_BRANCH}..HEAD -- "app/wp-content/themes/{THEME}/" | Select
   - ❌ Usar `as` con null check o `is` pattern matching en lugar de casting directo
 - [ ] **¿Se deserializa sin validar resultado?** → Ejemplo: `JSON.parse()` sin try-catch
   - ❌ El resultado de JSON/XML parse puede ser null
-- [ ] **¿Se usan parámetros de función sin validar?** → Ejemplo: parámetro usado directamente en filtro BD
-  - ❌ Parámetros críticos deben validarse al inicio del método
+- [x] **¿Se usan parámetros de función sin validar?** → Ejemplo: parámetro usado directamente en filtro BD
+  - ❌ **Parámetros críticos deben validarse al inicio del método**
+  - No solo validar que no sean nulos, sino también validar su **formato, longitud o estructura** (ej. RegEx para códigos de país, `trim()` para espacios, valores mínimos/máximos) antes de pasarlos a dependencias críticas externas (Caché, DB, HTTP APIs).
   - **🚨 ESPECIAL ATENCIÓN**: Parámetros en filtros MongoDB (`$match`, `$eq`, etc.)
   - **🚨 ESPECIAL ATENCIÓN**: Parámetros en queries SQL (`WHERE`, `JOIN`, etc.)
   - **🚨 ESPECIAL ATENCIÓN**: Parámetros en APIs externas (headers, body, query params)
@@ -465,6 +466,16 @@ $city = $response?->data?->address?->city ?? 'Unknown';
 ##### Calidad
 ##### Calidad y Robustez
 - ❌ **Redis Type Safety** - Verificar si se escribe una estructura compleja (Hash/Set) en una key que podría ser String. Riesgo de `WRONGTYPE`. Sugerir validar tipo o usar keys distintas.
+- ❌ **Caché como Dependencia Dura (Falta de Tolerancia a Fallos)** - ¿Se lanzan (`throw`) errores cuando falla una escritura/lectura en Redis o Caché? (ej. `catch (e) { throw e; }` al hacer un `set`).
+  - El caché debe ser "Best-effort" (dependencia blanda). Un fallo en caché (por timeout o caída temporal) NO DEBE romper el flujo principal de la aplicación.
+  - **Extension de falla por Configuración (Opt-in Cache)**: Si falta configuración (ej. `env.REDIS` no está seteado o falta prefijo de caché), métodos clave como `generateKey` NO DEBEN lanzar error (`throw`). Deben retornar `null` silenciosamente de modo que las llamadas superiores eviten usar la caché e invoquen directamente a la Base de Datos como fallback (degradación elegante).
+  - ✅ **SOLUCIÓN SEGURA**: Sugerir loguear el error (usando `log.error` o el logger centralizado del proyecto) y retornar `null` (o continuar el flujo), permitiendo que la operación principal (ej. procesar un pedido) finalice con éxito asumiendo un "cache miss" o "bypass" de caché.
+- ❌ **Falso Positivo de Inicialización (Fake State)** - ¿Se actualizan banderas de estado (ej. `this.isInitialized = true`, `isReady = true`) incondicionalmente sin verificar si el proceso de configuración o conexión subyacente realmente tuvo éxito?
+  - Declarar un objeto o handler como "inicializado" obliga a otros métodos a confiar ciegamente en él. Si la dependencia falla (ej. por falta de variables de entorno o error en conexión) la bandera nunca debería ser `true`.
+  - ✅ **SOLUCIÓN SEGURA**: Retornar el estado real de la configuración/conexión, o usar propiedades separadas (ej. `isConfigured` vs `isAvailable`) para convertir las subsecuentes operaciones dependientes en *no-op* (operaciones nulas que no explotan y hacen fallback safely).
+- ❌ **Colisión de Llaves en Caché (Cache Key Collision)** - ¿Se está construyendo una llave de caché (`Key`) genérica usando solo una parte del identificador que podría compartirse entre múltiples registros diferentes?
+  - Guardar múltiples datos bajo un mismo identificador no compuesto (ej. guardar dos configuraciones distintas bajo el mismo `TablaLogicaID` ignorando su `TablaLogicaDatosID`) causa que se sobreescriban entre sí, originando bugs lógicos silenciosos y respuestas corruptas.
+  - ✅ **SOLUCIÓN SEGURA**: Exigir que las llaves de caché sean granulares y combinadas (ej. `tlId:tldId` o `EntityName:ID:SubID`) para garantizar entradas únicas por cada bandera o data cacheados.
 - ❌ **Lógica Muerta** - ¿Se leen keys de cache/configuración que nunca se escriben/setean en el código? (Verificar si existen fuera del PR).
 - ❌ **Catch genéricos vacíos** sin mensaje útil ni logging
 - ❌ **Números mágicos** sin constante explicativa (ej: `if (status == 42)`)
@@ -474,6 +485,9 @@ $city = $response?->data?->address?->city ?? 'Unknown';
 - ❌ **Complejidad algorítmica O(n²)** - Loops anidados con `foreach` sobre colecciones grandes
   - Usar diccionarios/HashSet para búsquedas O(1) en lugar de loops anidados
   - Ejemplo: `foreach(a) { foreach(b) { if(a.id == b.id) } }` → Usar `ToDictionary()` primero
+- ❌ **Llamadas Asíncronas en Serie (Waterfall Anti-pattern)** - ¿Hay múltiples llamadas a bases de datos, APIs o servicios externos (`await` / `suspend` / `async`) que se ejecutan secuencialmente a pesar de NO depender de los resultados anteriores?
+  - Sumar latencias aumenta el tiempo total de respuesta (Time to First Byte).
+  - ✅ **SOLUCIÓN SEGURA**: Sugerir paralelizar las operaciones independientes usando `Promise.all()` (JS), `Task.WhenAll()` (C#), o `async/await` estructurado de Kotlin.
 
 ##### Consistencia de Código
 - ❌ **Inconsistencia de nombres de parámetros** - Al pasar variables entre métodos, mantener el mismo nombre
@@ -1489,11 +1503,19 @@ $commentFile = "$env:TEMP\pr_review_comment.md"
 {CONTENIDO_MARKDOWN_DEL_PASO_9}
 '@ | Set-Content -Path $commentFile -Encoding UTF8
 
-# 3. Determinar evento (APPROVE, REQUEST_CHANGES, COMMENT)
+# 3. Determinar evento (approve, request-changes, comment)
 $event = "{EVENTO_SEGÚN_SCORE}"
 
+# 3.1 Evitar error "Cannot approve your own pull request"
+$prAuthor = (gh pr view {PR_NUMBER} --repo {NOMBRE_USUARIO}/{REPO_NAME} --json author --jq .author.login)
+$currentUser = (gh api user -q .login)
+if ($event -eq "approve" -and $prAuthor -eq $currentUser) {
+    Write-Host "⚠️ El autor del PR es el mismo usuario autenticado. Cambiando APPROVE por COMMENT."
+    $event = "comment"
+}
+
 # 4. Publicar usando gh cli
-gh pr review {PR_NUMBER} --repo {NOMBRE_USUARIO}/{REPO_NAME} --{$event} --body-file $commentFile
+gh pr review {PR_NUMBER} --repo {NOMBRE_USUARIO}/{REPO_NAME} --$event --body-file $commentFile
 
 # ⚠️ NO eliminar $commentFile aquí — se necesita en el Paso 12 para guardar historial
 ```

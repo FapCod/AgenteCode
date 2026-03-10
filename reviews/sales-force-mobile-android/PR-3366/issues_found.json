@@ -1,0 +1,11 @@
+[
+  {
+    "title": "Espacio faltante después de la coma",
+    "file": "unete/src/main/java/biz/belcorp/unete/features/step3/address/model/geolevelscreen/SubDistritoDescriptionMapper.kt",
+    "line": 13,
+    "impact": -4,
+    "category": "Mantenibilidad",
+    "status": "PENDIENTE",
+    "severity": "P3"
+  }
+]
