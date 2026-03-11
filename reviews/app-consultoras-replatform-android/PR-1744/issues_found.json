@@ -1,0 +1,14 @@
+[
+  {
+    "severity": "P1",
+    "title": "Llamadas Redundantes al Parser",
+    "file": "AgileFormViewModel.kt",
+    "category": "Escalabilidad"
+  },
+  {
+    "severity": "P3",
+    "title": "Falta de newline al final del archivo",
+    "file": "NumberUtils.kt",
+    "category": "Mantenibilidad"
+  }
+]
