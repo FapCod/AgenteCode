@@ -1,11 +1,1 @@
-[
-  {
-    "title": "Recomposiciones innecesarias en Compose",
-    "file": "unete/src/main/java/biz/belcorp/unete/features/step3/address/ui/pe/geographiclevelsscreen/GeoLevelsScreen.kt",
-    "line": 29,
-    "impact": -5,
-    "category": "Arquitectura",
-    "status": "NUEVO",
-    "severity": "P1"
-  }
-]
+[]
