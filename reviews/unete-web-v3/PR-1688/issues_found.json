@@ -4,8 +4,8 @@
       "id": "P3-1",
       "type": "Nitpick - Rotura de formato string",
       "file": "packages/site/src/screens/personal-address/pe/with-mapcity/step-information.jsx",
-      "status": "pending",
-      "points": -1
+      "status": "fixed",
+      "points": 1
     }
   ]
 }
