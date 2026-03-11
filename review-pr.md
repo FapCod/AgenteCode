@@ -116,6 +116,7 @@ Por favor proporciona:
 ---
 
 ### Paso 1: Obtener información del PR (NO ES NECESARIO VALIDACION DEL USUARIO)
+
 // turbo
 ```powershell
 gh pr view {PR_NUMBER} --repo {NOMBRE_USUARIO}/{REPO_NAME} --json title,body,author,additions,deletions,changedFiles,baseRefName,headRefName
@@ -1497,6 +1498,7 @@ Veredicto: **{VERDICT ICON} {VERDICT}**
 > En PowerShell, el heredoc de comillas dobles interpreta el backtick `` ` `` como carácter de escape,
 > convirtiendo ` ``` ` en un solo `` ` `` y rompiendo todos los bloques de código en GitHub.
 
+// turbo
 ```powershell
 # 1. Definir encoding para evitar errores de caracteres
 $OutputEncoding = [System.Text.Encoding]::UTF8
