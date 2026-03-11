@@ -1,23 +1,9 @@
 {
   "issues": [
     {
-      "id": "P0-1",
-      "type": "Crash - Null Safety",
-      "file": "packages/site/src/shared/utils/functions.js",
-      "status": "pending",
-      "points": -16
-    },
-    {
-      "id": "P1-1",
-      "type": "Data Corruption - String Interpolation de undefined",
-      "file": "packages/site/src/screens/personal-address/co/step-information.jsx",
-      "status": "pending",
-      "points": -4
-    },
-    {
       "id": "P3-1",
       "type": "Nitpick - Rotura de formato string",
-      "file": "packages/site/src/screens/personal-address/pe/with-googlemap/step-information.jsx",
+      "file": "packages/site/src/screens/personal-address/pe/with-mapcity/step-information.jsx",
       "status": "pending",
       "points": -1
     }

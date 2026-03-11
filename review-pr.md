@@ -61,7 +61,7 @@ https://github.com/[NOMBRE_USUARIO]/[NOMBRE_REPO]/pull/[NUMERO_PR]
 > Después de publicar, TODAVÍA quedan los Pasos 12 y 13 (GATE C). Si los omites, el review es INVÁLIDO.
 >
 > > **🚨 MODELO DE PERMISOS**: La IA solo necesita pedir permiso para **publicar en GitHub/GitLab** (Paso 11).
-> > Todos los demás pasos (obtener diff, análisis, historial, archivado, **limpieza de archivos temporales**) se ejecutan **automáticamente sin pedir permiso**.
+> > Todos los demás pasos (obtener diff, análisis, auto-verificación, compilar el markdown, historial, archivado, **limpieza de archivos temporales**) se ejecutan **automáticamente sin pedir permiso al usuario**.
 > > La IA **NUNCA** debe pedir permiso para eliminar archivos temporales (`$env:TEMP\pr_review_comment.md`, `full_diff.txt`, `files.json`, etc.).
 >
 > > **🚨 REGLA DE TERMINACIÓN**: Este workflow tiene **15 PASOS**.
@@ -1489,7 +1489,8 @@ Veredicto: **{VERDICT ICON} {VERDICT}**
 ### Paso 11: Publicar Review en GitHub
 
 > **🚨 REQUIERE APROBACIÓN DEL USUARIO**: Este es el ÚNICO paso que requiere permiso explícito.
-> La IA DEBE mostrar el review al usuario y esperar confirmación antes de ejecutar este comando.
+> La IA DEBE mostrar el review al usuario y preguntar: *¿Deseas publicar este comentario en GitHub?*
+> **SI EL USUARIO NO AUTORIZA, NO SE DEBE PUBLICAR EL COMENTARIO.**
 > Todos los demás pasos (historial, archivado, limpieza) se ejecutan automáticamente.
 
 > **🚨 CRÍTICO — HEREDOC EN POWERSHELL**:
