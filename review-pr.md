@@ -1439,7 +1439,9 @@ Veredicto: **{VERDICT ICON} {VERDICT}**
 ## 📝 Sugerencia de Próximo Commit
 {El numero o id del ticket tiene que salir de la rama del PR Y SI NO LO TIENE SUGERIR QUE COLOQUE EN EL COMMIT EL NUMERO DEL TICKET QUE SE ESTA SOLUCIONANDO} ejemplo:
  `[TICKET-123] -FIX {Resumen corto de correcciones P0/P1}`
+
 *(Si no hay issues P0, P1 ni P2/P3, escribir: "Ninguno ✅")*
+
 ---
 
 ## 📋 Resumen del PR
