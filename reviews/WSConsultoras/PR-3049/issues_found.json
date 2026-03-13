@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Null Safety - Acceso a propiedad de parámetro sin validación previa",
+    "category": "Robustez",
+    "impact": 20
+  },
+  {
+    "title": "Arquitectura - Instanciación manual de dependencia (Breaking DI)",
+    "category": "Arquitectura",
+    "impact": 10
+  }
+]

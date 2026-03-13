@@ -1,0 +1,29 @@
+[
+  {
+    "id": "P0-1",
+    "title": "Uso de console.log en produccion",
+    "file": "src/core/s3.js",
+    "line": 47,
+    "severity": "P0",
+    "category": "Robustez",
+    "points_deducted": 15
+  },
+  {
+    "id": "P1-1",
+    "title": "Falta de Optional Chaining y Null Safety",
+    "file": "src/core/s3.js",
+    "line": 45,
+    "severity": "P1",
+    "category": "Robustez",
+    "points_deducted": 10
+  },
+  {
+    "id": "P1-2",
+    "title": "Mensajes de error Hardcodeados",
+    "file": "src/core/s3.js",
+    "line": 24,
+    "severity": "P1",
+    "category": "Mantenibilidad",
+    "points_deducted": 5
+  }
+]

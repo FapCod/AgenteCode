@@ -346,7 +346,7 @@ git diff origin/{BASE_BRANCH}..HEAD -- "app/wp-content/themes/{THEME}/" | Select
 
 ##### Código de debug
 - [ ] **Console.log/print/Log.d**: ¿Hay logs de debug en código de producción? (PROHIBIDO)
-  - ❌ `console.log`, `print`, `Log.d` en producción → Rechazo inmediato
+  - ❌ `console.log`, `print`, `Log.d` en producción → Validar si existe un logger centralizado
   - ❌ **`// console.error(...)` comentado** → Rechazo inmediato (es código muerto, ver regla de Comentarios)
   - ⚠️ **EXCEPCIÓN para `console.error` en catch blocks**: Si el proyecto **NO tiene un logger centralizado**, aplicar el siguiente criterio:
     - **Paso 1 — Buscar si existe una mejor alternativa en el proyecto**: Revisar otros archivos del mismo PR o del proyecto para detectar si ya existe un mecanismo de logging (ej: `ctx.log`, `_logger`, `logger.error`, `Timber.e`, `Sentry.captureException`, servicio de Kibana, etc.).

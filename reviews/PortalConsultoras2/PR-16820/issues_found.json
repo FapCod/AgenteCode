@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Estandar de Naming - PascalCase en parámetros",
+    "category": "Robustez",
+    "impact": 4
+  },
+  {
+    "title": "Encoding - Caracteres especiales en logs",
+    "category": "Mantenibilidad",
+    "impact": 5
+  }
+]
