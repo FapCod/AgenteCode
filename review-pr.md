@@ -1270,6 +1270,7 @@ El puntaje final (0-100) es la suma de: `(Puntaje Categoría * Peso) / 5 * 100`
 
 📊 **Puntaje General**: {SCORE}/100 ⭐⭐⭐
 Veredicto: **{VERDICT ICON} {VERDICT}**
+Rama: **{BRANCH}**
 
 ## 📈 Desglose de Puntaje
 | Categoría | Puntaje | Peso | Contribución |
