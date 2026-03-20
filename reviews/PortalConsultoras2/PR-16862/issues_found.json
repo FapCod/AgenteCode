@@ -1,0 +1,4 @@
+[
+  { "title": "Código redundante e inalcanzable (Dead Code)", "category": "Mantenibilidad", "points": -6, "status": "PENDING" },
+  { "title": "Inconsistencia en Camel Case (Naming Properties)", "category": "Mantenibilidad", "points": -3, "status": "PENDING" }
+]
