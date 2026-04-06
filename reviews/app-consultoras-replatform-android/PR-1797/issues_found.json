@@ -1,0 +1,16 @@
+{
+  "issues": [
+    {
+      "id": "comentarios_codigo",
+      "p0": true
+    },
+    {
+      "id": "hardcoded_chile_iso",
+      "p1": true
+    },
+    {
+       "id": "naming_spanglish",
+       "p2": true
+    }
+  ]
+}

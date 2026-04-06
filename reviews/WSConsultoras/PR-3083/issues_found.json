@@ -1,0 +1,25 @@
+{
+  "issues": [
+    {
+      "id": "P0-01",
+      "categoria": "Funcionalidad",
+      "titulo": "Bug Lógico en Fallback de Feature Flag",
+      "puntos": -15,
+      "estado": "PENDIENTE"
+    },
+    {
+      "id": "P1-01",
+      "categoria": "Robustez",
+      "titulo": "Impacto Global no Anticipado en Helpers/Utilitarios",
+      "puntos": -5,
+      "estado": "PENDIENTE"
+    },
+    {
+      "id": "P3-01",
+      "categoria": "Mantenibilidad",
+      "titulo": "Falta el salto de línea al final del archivo",
+      "puntos": 0,
+      "estado": "PENDIENTE"
+    }
+  ]
+}

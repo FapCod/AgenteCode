@@ -1,0 +1,12 @@
+{
+  "pr_number": 120,
+  "repo": "personalization-search-v2",
+  "score": 87,
+  "verdict": "comment",
+  "iteration": 2,
+  "issues": [
+    { "id": "P1-3", "severity": "P1", "title": "console.log en catch block - nivel incorrecto", "file": "app/controllers/oferta.js", "resolved": false },
+    { "id": "P1-2", "severity": "P1", "title": "Uso de .map() con side-effects", "file": "app/services/productApi.js", "resolved": false },
+    { "id": "P2-2", "severity": "P2", "title": "Espaciado de alineacion inconsistente", "file": "app/services/productApi.js", "resolved": false }
+  ]
+}

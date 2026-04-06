@@ -1459,6 +1459,13 @@ Rama: **{BRANCH}**
 - {SEGURIDAD/PERFORMANCE/ARQUITECTURA}
 
 > _Ref: Consultar Apéndice D para referencias oficiales específicas de cada lenguaje_
+
+---
+
+**Nota de Revisión Automatizada (IA)** 🤖
+Te comento que ya dejé las observaciones correspondientes en la revisión de tu PR. Échales un vistazo cuando tengas un momento.
+
+Ten en cuenta que la revisión cuenta con un análisis automatizado, por lo que si consideras que alguna observación es un falso positivo, o que el cambio sugerido técnica/arquitectónicamente no es aplicable para este caso, no te preocupes; solo déjame un comentario en el mismo PR sustentando el motivo funcional o técnico por el cual no aplicaría el cambio y lo revisamos juntos para aprobarlo. ¡Gracias!
 ```
 
 ---

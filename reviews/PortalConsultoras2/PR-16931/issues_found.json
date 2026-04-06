@@ -1,0 +1,11 @@
+{
+  "issues": [
+    {
+      "id": "P2-01",
+      "categoria": "Mantenibilidad",
+      "titulo": "Uso de .Result tras Task.WhenAll",
+      "puntos": -2,
+      "estado": "PENDIENTE"
+    }
+  ]
+}
