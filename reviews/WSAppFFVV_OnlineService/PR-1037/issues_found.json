@@ -1,0 +1,45 @@
+{
+  "pr_number": 1037,
+  "review_date": "2026-04-13",
+  "score": 89,
+  "verdict": "COMMENT",
+  "issues": {
+    "P0": [],
+    "P1": [
+      {
+        "id": "P1-001",
+        "title": "Falta validacion de null en retorno de AppSettingsOrchestrator",
+        "file": "SomosBelcorpService.cs",
+        "line": 32,
+        "status": "open",
+        "impact_points": 4,
+        "category": "Robustez"
+      },
+      {
+        "id": "P1-002",
+        "title": "Falta validacion de null en credenciales APISB2",
+        "file": "RestClient.cs",
+        "line": "177-178",
+        "status": "open",
+        "impact_points": 4,
+        "category": "Robustez"
+      }
+    ],
+    "P2": [
+      {
+        "id": "P2-001",
+        "title": "Inconsistencia parcial en migracion a AppSettingsOrchestrator",
+        "file": "SomosBelcorpService.cs",
+        "line": "30-36",
+        "status": "open",
+        "impact_points": 2,
+        "category": "Mantenibilidad"
+      }
+    ],
+    "P3": []
+  },
+  "new_dependencies": [
+    "AWSSDK.Core v3.7.500",
+    "AWSSDK.SecretsManager v3.7.500"
+  ]
+}

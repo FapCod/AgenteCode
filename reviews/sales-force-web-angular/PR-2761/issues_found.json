@@ -1,0 +1,51 @@
+{
+  "pr_number": 2761,
+  "review_date": "2026-04-13",
+  "score": 93,
+  "verdict": "APPROVED",
+  "previous_issues_resolved": [
+    {
+      "id": "P1-001",
+      "title": "Validacion insuficiente de credenciales OAuth",
+      "file": "ClientApp/projects/core/src/lib/rest/oauth.service.ts",
+      "status": "resolved",
+      "points_recovered": 4
+    },
+    {
+      "id": "P1-002",
+      "title": "Error silenciado en saveSecrets",
+      "file": "ClientApp/projects/core/src/lib/services/session.service.ts",
+      "status": "resolved",
+      "points_recovered": 4
+    }
+  ],
+  "issues": {
+    "P0": [],
+    "P1": [],
+    "P2": [
+      {
+        "id": "P2-001",
+        "title": "Uso de .toPromise() deprecado",
+        "file": "ClientApp/projects/core/src/lib/rest/auth-api-sb2.service.ts",
+        "status": "open",
+        "points_deducted": 2
+      },
+      {
+        "id": "P2-002",
+        "title": "console.log en catch de startAzureAD",
+        "file": "ClientApp/projects/core/src/lib/services/sign-in.presenter.ts",
+        "status": "open",
+        "points_deducted": 2
+      }
+    ],
+    "P3": [
+      {
+        "id": "P3-001",
+        "title": "Falta newline al final del archivo",
+        "file": "secrets.interface.ts, index.ts",
+        "status": "open",
+        "points_deducted": 0
+      }
+    ]
+  }
+}

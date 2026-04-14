@@ -1,0 +1,70 @@
+{
+  "pr_number": 1006,
+  "review_date": "2026-04-14",
+  "score": 90,
+  "verdict": "APPROVE",
+  "previous_score": 82,
+  "issues_resolved": [
+    {
+      "id": "P1-001",
+      "title": "Thread Safety Issue - Lock Estatico con Cache de Instancia",
+      "status": "resolved",
+      "points_recovered": 6
+    },
+    {
+      "id": "P1-002",
+      "title": "Import No Utilizado",
+      "status": "resolved",
+      "points_recovered": 2
+    },
+    {
+      "id": "P1-003",
+      "title": "Inicializacion de Campos con Llamadas Externas",
+      "status": "resolved",
+      "points_recovered": 4
+    },
+    {
+      "id": "P2-002",
+      "title": "Falta Validacion de Null en GetConnectionString",
+      "status": "resolved",
+      "points_recovered": 2
+    },
+    {
+      "id": "P3-001",
+      "title": "Falta newline al final del archivo",
+      "status": "resolved",
+      "points_recovered": 0.5
+    }
+  ],
+  "issues_pending": [
+    {
+      "id": "P2-001",
+      "priority": "P2",
+      "title": "Codigo Duplicado en Orchestrators",
+      "file": "RegistroDbPaisesOrchestrator.cs, RegistroMongoFFVVPaisesOrchestrator.cs, RegistroMongoPaisesOrchestrator.cs",
+      "status": "open",
+      "points_deducted": 3,
+      "category": "Mantenibilidad"
+    }
+  ],
+  "new_issues": [
+    {
+      "id": "P3-002",
+      "priority": "P3",
+      "title": "Formato inconsistente en DataPackage.cs",
+      "file": "DataPackage.cs",
+      "status": "open",
+      "points_deducted": 0.5,
+      "category": "Mantenibilidad"
+    },
+    {
+      "id": "P3-003",
+      "priority": "P3",
+      "title": "Naming convention en campos privados",
+      "file": "AmazonS3Util.cs",
+      "status": "open",
+      "points_deducted": 0.5,
+      "category": "Mantenibilidad"
+    }
+  ]
+}

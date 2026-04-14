@@ -1,0 +1,31 @@
+{
+  "pr": 799,
+  "repo": "api-sales-force-kpis",
+  "reviewDate": "2026-04-13T15:30:00",
+  "score": 97,
+  "verdict": "APPROVE",
+  "previousScore": 93,
+  "improvement": 4,
+  "issueCount": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 1
+  },
+  "issuesFromPreviousReview": {
+    "corrected": [
+      "Uso de tipo any en TypeScript - Ahora usa AppConfig interface"
+    ],
+    "pending": [
+      "Inconsistencia de comillas en import"
+    ]
+  },
+  "issues": [
+    {
+      "priority": "P3",
+      "file": "src/utils/env.ts",
+      "line": "1",
+      "description": "Inconsistencia de comillas en import (comillas dobles vs simples)"
+    }
+  ]
+}

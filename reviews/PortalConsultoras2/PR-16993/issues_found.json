@@ -1,0 +1,16 @@
+{
+  "pr_number": 16993,
+  "review_date": "2026-04-14",
+  "score": 100,
+  "verdict": "APPROVED",
+  "issues": {
+    "P0": [],
+    "P1": [],
+    "P2": [],
+    "P3": []
+  },
+  "files_reviewed": [
+    "packages/app/Portal.Consultoras.Web/Controllers/BusquedaProductosController.cs",
+    "packages/app/Portal.Consultoras.Web/Scripts/PortalConsultoras/Buscador/BuscadorModule.js"
+  ]
+}

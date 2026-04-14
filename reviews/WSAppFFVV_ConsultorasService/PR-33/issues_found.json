@@ -1,0 +1,26 @@
+{
+  "pr_number": 33,
+  "repo": "tech-belcorp/WSAppFFVV_ConsultorasService",
+  "review_date": "2026-04-13",
+  "score": 91,
+  "verdict": "APPROVE",
+  "issues": {
+    "P0": [],
+    "P1": [
+      {
+        "id": "P1-001",
+        "title": "Binarios (.dll) en el repositorio",
+        "files": ["app/CommonAssemblies/*.dll"],
+        "status": "noted",
+        "impact": "-4 puntos (Mantenibilidad/Arquitectura)"
+      }
+    ],
+    "P2": [],
+    "P3": []
+  },
+  "positives": [
+    "Eliminación de credenciales hardcodeadas",
+    "Migración a AWS Secrets Manager",
+    "Eliminación de información de servidores"
+  ]
+}

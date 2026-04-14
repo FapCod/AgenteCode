@@ -1,0 +1,56 @@
+{
+  "pr_number": 606,
+  "repo": "tech-belcorp/PortalFFVVServiciosM",
+  "review_date": "2026-04-13",
+  "score": 65,
+  "verdict": "REQUEST_CHANGES",
+  "issues": {
+    "P0": [
+      {
+        "id": "P0-001",
+        "title": "Inconsistencia de Key AWS_SECRET_ENVIROMENT vs AWS_SECRET_ENVIRONMENT",
+        "file": "Web.config + AwsSecretsManagerStrategy.cs",
+        "line": "69 / 12",
+        "status": "pending"
+      }
+    ],
+    "P1": [
+      {
+        "id": "P1-001",
+        "title": "Uso de .GetAwaiter().GetResult() - Riesgo de Deadlock",
+        "file": "AwsSecretsManagerStrategy.cs",
+        "status": "fixed"
+      },
+      {
+        "id": "P1-003",
+        "title": "Sin tolerancia a fallos si AWS Secrets Manager no esta disponible",
+        "file": "AwsSecretsManagerStrategy.cs",
+        "line": "63-67",
+        "status": "pending"
+      },
+      {
+        "id": "P1-004",
+        "title": "Validacion de secretName ocurre DESPUES del string.Format",
+        "file": "AwsSecretsManagerStrategy.cs",
+        "status": "fixed"
+      }
+    ],
+    "P2": [
+      {
+        "id": "P2-001",
+        "title": "Doble instanciacion de AwsSecretsManagerStrategy",
+        "file": "AppSettingsOrchestrator.cs y ConnectionStrategyOrchestrator.cs",
+        "status": "pending"
+      }
+    ],
+    "P3": [
+      {
+        "id": "P3-001",
+        "title": "GetConnectionString retorna null sin advertencia",
+        "file": "AwsSecretsManagerStrategy.cs",
+        "line": "82-83",
+        "status": "pending"
+      }
+    ]
+  }
+}
